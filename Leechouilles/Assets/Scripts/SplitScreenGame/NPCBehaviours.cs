@@ -78,7 +78,7 @@ public class NPCBehaviours : MonoBehaviour
     }
     public void SetMoveset(NPCMovementHabits moveset)
     {
-        movementHabits = moveset
+        movementHabits = moveset;
 
         switch(movementHabits)
         {
