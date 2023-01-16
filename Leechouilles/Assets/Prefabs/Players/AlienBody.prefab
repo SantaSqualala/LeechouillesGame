@@ -84,7 +84,7 @@ MonoBehaviour:
   jumpIncrementSpeed: 50
   jumpDelay: 3
   xCameraSensitivity: 100
-  yCameraSensitivity: 100
+  yCameraSensitivity: 250
   mouseFactor: 10
   minXRot: -80
   maxXRot: 80

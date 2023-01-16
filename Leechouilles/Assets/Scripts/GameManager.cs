@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     private bool hasHunter = false;
-    private int playersReady = 0;
     private List<LobbyPlayerBehaviour> players = new List<LobbyPlayerBehaviour>();
     
     [SerializeField] private GameObject hunterPrefab;
@@ -35,6 +34,5 @@ public class GameManager : MonoBehaviour
         }
 
         players.Add(player);
-        playersReady++;
     }
 }

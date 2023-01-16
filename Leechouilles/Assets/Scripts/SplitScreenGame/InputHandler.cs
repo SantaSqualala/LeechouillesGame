@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     private Vector2 lookInput;
     private bool actionL;
     private bool actionR;
+    private bool jump;
     private bool isGamepad;
 
     // Fixed Update is called once every physics call
@@ -45,32 +46,43 @@ public class InputHandler : MonoBehaviour
     {
         actionR = context.ReadValueAsButton();
     }
+
+    public void InputActionJump(InputAction.CallbackContext context)
+    {
+        jump = context.ReadValueAsButton();
+    }
     #endregion
 
     
     #region Get Input
-    // Return the movement input
+    // Return the movement vector2 input
     public Vector2 inputMovement()
     {
         return movementInput;
     }
 
-    // Return the look input
+    // Return the look vector2 input
     public Vector2 inputLook()
     {
         return lookInput;
     }
 
-    // Return the Left Action input
+    // Return true if left action key is pressed
     public bool inputActionL()
     {
         return actionL;
     }
 
-    // Return the Right Action input
+    // Return true if right action key is pressed
     public bool inputActionR()
     {
         return actionR;
+    }
+
+    // Return true if jump key is pressed
+    public bool inputJump()
+    {
+        return jump;
     }
 
     public bool isGamepadUsed()

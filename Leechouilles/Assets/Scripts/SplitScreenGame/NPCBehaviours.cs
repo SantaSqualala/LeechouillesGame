@@ -111,7 +111,7 @@ public class NPCBehaviours : MonoBehaviour
     {
         infected = true;
         alienInside = alien;
-        Destroy(GetComponent<NavMeshAgent>());
+        agent.speed = 0f;
     }
 
     // NPC will flee in the opposite direction of the death
@@ -127,9 +127,10 @@ public class NPCBehaviours : MonoBehaviour
     // Triggers events when the alien leaves the body
     public void NPCDeath()
     {
-        //Instantiate(explosionDeath, transform.position, alienInside.transform.rotation);
-        //explosionSound.Play();
-        //Destroy(animator);
+        Instantiate(explosionDeath, transform.position, alienInside.transform.rotation);
+        Debug.Log("death");
+        explosionSound.Play();
+        FindObjectOfType<NPCManager>().NPCDEAD(this);
 
         if(npcsInRangeForFleeOnDeath.Count > 0)
         {

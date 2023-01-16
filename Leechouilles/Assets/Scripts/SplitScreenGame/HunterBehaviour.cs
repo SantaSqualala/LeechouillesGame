@@ -34,7 +34,7 @@ public class HunterBehaviour : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cam = inputHandler.GetComponentInChildren<Camera>();
         cam.transform.SetParent(characterController.transform, false);
-        cam.transform.localPosition = new Vector3(0f, 0.6f, 0f);
+        cam.transform.localPosition = new Vector3(0f, 0.75f, 0f);
     }
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class HunterBehaviour : MonoBehaviour
 
         characterController.Move(move);
 
-        StickToGround();
+        //StickToGround();
     }
 
     private void StickToGround()

@@ -15,4 +15,11 @@ public class NPCManager : MonoBehaviour
             npcs[i].transform.position += Vector3.left * Random.Range(-4f, 4f) + Vector3.forward * Random.Range(-4f, 4f) ;
         }
     }
+
+    public void NPCDEAD(NPCBehaviours npc)
+    {
+        npcs.Remove(npc);
+        npc.GetComponentInChildren<Animator>().transform.SetParent(transform, true);
+        Destroy(npc);
+    }
 }

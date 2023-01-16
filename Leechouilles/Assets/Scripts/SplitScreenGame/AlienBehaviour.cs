@@ -58,11 +58,6 @@ public class AlienBehaviour : MonoBehaviour
             {
                 Jump();
             }
-
-            if(!isInNPC)
-            {
-                Move();
-            }
         }
     }
 

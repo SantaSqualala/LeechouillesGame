@@ -1289,6 +1289,21 @@ PrefabInstance:
       propertyPath: m_StaticShadowCaster
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4859009823815540212, guid: e896c4774b87c4846ae59d0c26465225,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.8191345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859009823815540212, guid: e896c4774b87c4846ae59d0c26465225,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0904325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859009823815540212, guid: e896c4774b87c4846ae59d0c26465225,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.00000013411048
+      objectReference: {fileID: 0}
     - target: {fileID: 8406332380744526140, guid: e896c4774b87c4846ae59d0c26465225,
         type: 3}
       propertyPath: m_RootOrder
@@ -2410,6 +2425,7 @@ MonoBehaviour:
   - {fileID: 738332321}
   - {fileID: 1470967244}
   - {fileID: 1856459278}
+  announcer: {fileID: 629090370}
 --- !u!1001 &605632455
 PrefabInstance:
   m_ObjectHideFlags: 0
