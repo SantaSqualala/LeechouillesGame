@@ -5,7 +5,7 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 1
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 00000000000000000000000000000000
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17757934, g: 0.22232315, b: 0.30451888, a: 1}
+  m_IndirectSpecularColor: {r: 0.17757925, g: 0.22232303, b: 0.3045191, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 552720575}
   - component: {fileID: 552720574}
   - component: {fileID: 552720573}
+  - component: {fileID: 552720576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -164,13 +165,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.15
+  m_Radius: 0.29
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.4, z: 0}
 --- !u!4 &552720575
 Transform:
   m_ObjectHideFlags: 0
@@ -188,6 +189,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -179.972, z: 0}
+--- !u!114 &552720576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552720572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707e7e8cf8f77e5408d2dd86dd8bb581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 4.5
+  runningSpeed: 8.5
+  jumpSpeed: 5
+  gravity: 20
+  playerCamera: {fileID: 769110908}
+  lookSpeed: 5
+  lookXLimit: 80
+  canMove: 1
 --- !u!1 &751764035
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,14 +316,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751764035}
-  m_LocalRotation: {x: -0.25000003, y: -0.75, z: 0.4330127, w: -0.43301272}
+  m_LocalRotation: {x: -0.2759685, y: -0.7221663, z: 0.41694295, w: -0.4779914}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 60, y: -240, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: -247, z: 0}
 --- !u!1 &769110904
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +453,6 @@ GameObject:
   - component: {fileID: 843510709}
   - component: {fileID: 843510708}
   - component: {fileID: 843510707}
-  - component: {fileID: 843510706}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -440,20 +460,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &843510706
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843510704}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &843510707
 MeshRenderer:
   m_ObjectHideFlags: 0
