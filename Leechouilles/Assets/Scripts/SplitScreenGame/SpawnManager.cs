@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     public void Spawn(GameObject player)
     {
         player.transform.position = spawns[i].transform.position;
+        player.transform.rotation = spawns[i].transform.rotation;
         i++;
 
         if(i >= 2)
