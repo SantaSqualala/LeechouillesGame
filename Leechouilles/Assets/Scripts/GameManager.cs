@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static NetPlayerBehaviour;
 
 public class GameManager : MonoBehaviour
 {
+    private PlayerInputManager playerInputManager;
+    private SpawnManager spawnManager;
+
     private bool hasHunter = false;
     private List<LobbyPlayerBehaviour> players = new List<LobbyPlayerBehaviour>();
+    private List<GameObject> playerList = new List<GameObject>();
     
     [SerializeField] private GameObject hunterPrefab;
     [SerializeField] private GameObject alienPrefab;
 
-    private void Update()
+    private void Start()
     {
-
+        playerInputManager = GetComponent<PlayerInputManager>();
+        spawnManager = GetComponent<SpawnManager>();
+        playerInputManager.playerPrefab = hunterPrefab;
     }
 
-    private void LaunchGame()
-    {
-
-    }
-
+    // Depreceated
     public void PlayerJoin(LobbyPlayerBehaviour player)
     {
         if(hasHunter)
@@ -34,5 +37,26 @@ public class GameManager : MonoBehaviour
         }
 
         players.Add(player);
+    }
+
+    // triggers on player joining game
+    public void OnPlayerJoined()
+    {
+        if(hasHunter)
+        {
+            playerInputManager.playerPrefab = alienPrefab;
+        }
+
+        foreach(SplitScreenInputHandler input in FindObjectsOfType<SplitScreenInputHandler>())
+        {
+            if(!playerList.Contains(input.gameObject))
+            {
+                playerList.Add(input.gameObject);
+            }
+
+            spawnManager.Spawn(input.gameObject);
+        }
+
+        hasHunter = true;
     }
 }

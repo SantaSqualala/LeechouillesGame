@@ -9,14 +9,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullets
   - Water
   - UI
   - Player
   - NPC
   - ParasiteInHost
   - 
-  - 
+  - ParasitePos
   - 
   - 
   - 
@@ -27,7 +27,7 @@ TagManager:
   - 
   - 
   - Luminaries
-  - 
+  - FPSView
   - 
   - 
   - 
