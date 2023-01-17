@@ -16,7 +16,7 @@ public class AlienCameraBehaviour : MonoBehaviour
 
     private void Start()
     {
-        cameraHolder = transform.parent;
+        cameraHolder = transform.GetChild(0);
         inputHandler = GetComponentInParent<InputHandler>();
     }
 
@@ -28,10 +28,10 @@ public class AlienCameraBehaviour : MonoBehaviour
     // Rotate the camera and its parent accordingly to input
     private void TPSCameraLook()
     {
-        transform.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
+        cameraHolder.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
 
         xRot -= inputHandler.inputLook().y * xCameraSensitivity * Time.deltaTime;
         xRot = Mathf.Clamp(xRot, minXRot, maxXRot);
-        cameraHolder.transform.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
+        cameraHolder.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
     }
 }

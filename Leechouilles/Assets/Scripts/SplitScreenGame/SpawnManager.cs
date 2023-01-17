@@ -14,6 +14,9 @@ public class SpawnManager : MonoBehaviour
         player.transform.position = spawns[i].transform.position;
         player.transform.rotation = spawns[i].transform.rotation;
         i++;
+        player.SetActive(true);
+
+        Debug.Log(i);
 
         if(i >= 2)
         {

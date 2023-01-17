@@ -18,7 +18,7 @@ public class BulletBehaviour : MonoBehaviour
 
         if(collision.gameObject.GetComponent<AlienMovementBehaviour>())
         {
-
+            Destroy(collision.gameObject.GetComponent<AlienMovementBehaviour>());
         }
 
         Destroy(gameObject);

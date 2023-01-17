@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dd53f101839b3944d9cfdfebceaa3ab4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f78473a93e2159745862703dd3b3a793, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3479219978700052853
 Transform:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 1.7
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -546,7 +546,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 54.705585
+  field of view: 39.822956
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -842,7 +842,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.042725
+  field of view: 39.822956
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1289,6 +1289,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8169382868667117632, guid: e8f549afc3a757246b267695f41d3f12,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.06090367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169382868667117632, guid: e8f549afc3a757246b267695f41d3f12,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.010751408
+      objectReference: {fileID: 0}
     - target: {fileID: 8817898888258712963, guid: e8f549afc3a757246b267695f41d3f12,
         type: 3}
       propertyPath: m_Layer
@@ -1404,12 +1414,12 @@ PrefabInstance:
     - target: {fileID: 6609700061597277048, guid: 20f7209f82b412246888560cd1e33c13,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 33
+      value: -0.0000000015731452
       objectReference: {fileID: 0}
     - target: {fileID: 6609700061597277048, guid: 20f7209f82b412246888560cd1e33c13,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 12
+      value: 7.95e-43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20f7209f82b412246888560cd1e33c13, type: 3}
