@@ -635,6 +635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707e7e8cf8f77e5408d2dd86dd8bb581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedRotKeyboard: 0
+  SpeedRotController: 0
   walkingSpeed: 4.5
   runningSpeed: 8.5
   jumpSpeed: 5
@@ -685,6 +687,7 @@ GameObject:
   - component: {fileID: 552720574}
   - component: {fileID: 552720573}
   - component: {fileID: 552720576}
+  - component: {fileID: 552720577}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Untagged
@@ -752,6 +755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707e7e8cf8f77e5408d2dd86dd8bb581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedRotKeyboard: 0.5
+  SpeedRotController: 4
   walkingSpeed: 4.5
   runningSpeed: 8.5
   jumpSpeed: 5
@@ -760,6 +765,137 @@ MonoBehaviour:
   lookSpeed: 5
   lookXLimit: 80
   canMove: 1
+--- !u!114 &552720577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552720572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b0189be4dec8be94b80f3cc584c3a098,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 552720576}
+        m_TargetAssemblyTypeName: SC_FPSController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ab516ec1-78e1-4223-8427-dc080510f451
+    m_ActionName: PlayerInputs/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 552720576}
+        m_TargetAssemblyTypeName: SC_FPSController, Assembly-CSharp
+        m_MethodName: OnRotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2b08eed3-8fd1-432d-b05f-1d5615e01479
+    m_ActionName: PlayerInputs/Look[/XInputControllerWindows/rightStick,/DualShock4GamepadHID/rightStick,/Mouse/delta/up,/Mouse/delta/down,/Mouse/delta/left,/Mouse/delta/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75bd71ce-12aa-433a-987d-d19fa259f6d1
+    m_ActionName: PlayerInputs/ActionL[/Mouse/leftButton,/XInputControllerWindows/leftShoulder,/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c7cb2e3-04b2-4ea4-a2cf-9d95ee4f1562
+    m_ActionName: PlayerInputs/ActionR[/Mouse/rightButton,/XInputControllerWindows/rightShoulder,/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fb2acb8b-e6a6-43f7-b630-5d4194b3feca
+    m_ActionName: HunterInputs/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8f7ea255-77f8-4a39-8883-69b1f486d6e1
+    m_ActionName: HunterInputs/Look[/Mouse/delta,/XInputControllerWindows/rightStick,/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6644fc5a-6694-4b74-9824-9ff8b1a7e018
+    m_ActionName: HunterInputs/Fire[/Mouse/leftButton,/XInputControllerWindows/rightTrigger,/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8914ddce-445c-4822-8775-fe7e6a8b2be1
+    m_ActionName: HunterInputs/Scan[/Mouse/rightButton,/XInputControllerWindows/leftTrigger,/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39bd7c05-f162-4bf0-aa81-0ff8f60befad
+    m_ActionName: AlienInputs/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce85cc66-50fa-4956-8ec3-0c48e3c8aeaf
+    m_ActionName: AlienInputs/Look[/Mouse/delta,/XInputControllerWindows/rightStick,/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4946120d-aa38-47e1-9a4f-43115e0076da
+    m_ActionName: AlienInputs/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 552720576}
+        m_TargetAssemblyTypeName: SC_FPSController, Assembly-CSharp
+        m_MethodName: OnSprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e7d38fcb-66c2-4cad-b6d4-3a97a2c50037
+    m_ActionName: PlayerInputs/Sprint[/XInputControllerWindows/leftStickPress,/DualShock4GamepadHID/leftStickPress,/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 552720576}
+        m_TargetAssemblyTypeName: SC_FPSController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ff5ec43a-3282-497c-91c4-51bda0e223aa
+    m_ActionName: PlayerInputs/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: PlayerInputs
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &617475427
 GameObject:
   m_ObjectHideFlags: 0

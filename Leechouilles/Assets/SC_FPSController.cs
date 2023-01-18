@@ -1,11 +1,17 @@
+using FishNet.Example.Scened;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class SC_FPSController : MonoBehaviour
 {
+
+    [SerializeField] private float SpeedRotKeyboard = 10;
+    [SerializeField] private float SpeedRotController = 10;
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
@@ -14,12 +20,20 @@ public class SC_FPSController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
+    private Vector2 movementInput;
+    private Vector2 rotateInput;
+
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
 
     [HideInInspector]
     public bool canMove = true;
+    private bool sprintInput;
+    private bool jumpInput;
+
+    PlayerInput playerInput;
+
 
     void Start()
     {
@@ -28,21 +42,52 @@ public class SC_FPSController : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        playerInput = GetComponent<PlayerInput>();
     }
+
+    public void OnMove(InputAction.CallbackContext ctx)
+    {
+        movementInput = ctx.ReadValue<Vector2>();
+    }
+
+    public void OnRotate(InputAction.CallbackContext ctx)
+    {
+        rotateInput = ctx.ReadValue<Vector2>();
+    }
+
+    public void OnSprint(InputAction.CallbackContext ctx)
+    {
+        sprintInput = ctx.action.triggered;
+    }
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        jumpInput = ctx.action.triggered;
+    }
+
+
+
+
 
     void Update()
     {
+        if (playerInput.GetComponent<PlayerInput>().currentControlScheme == "Keyboard")
+        {
+            lookSpeed = SpeedRotKeyboard;
+        }
+        else lookSpeed = SpeedRotController;
+
         // We are grounded, so recalculate move direction based on axes
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 forward = transform.TransformDirection(Vector3.forward );
+        Vector3 right = transform.TransformDirection(Vector3.right );
         // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
+       
+        float curSpeedX = canMove ? (sprintInput ? runningSpeed : walkingSpeed) * movementInput.y : 0;
+        float curSpeedY = canMove ? (sprintInput ? runningSpeed : walkingSpeed) * movementInput.x : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        if (jumpInput && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
         }
@@ -65,10 +110,10 @@ public class SC_FPSController : MonoBehaviour
         // Player and Camera rotation
         if (canMove)
         {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            rotationX += rotateInput.y * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+            transform.rotation *= Quaternion.Euler(0, rotateInput.x * lookSpeed, 0);
         }
     }
 }
