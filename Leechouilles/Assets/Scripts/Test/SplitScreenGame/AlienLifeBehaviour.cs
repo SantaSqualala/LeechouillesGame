@@ -21,11 +21,14 @@ public class AlienLifeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-
-        if(timeLeft <= 0)
+        if(isAlive)
         {
-            Death();
+            timeLeft -= Time.deltaTime;
+
+            if (timeLeft <= 0)
+            {
+                Death();
+            }
         }
 
         //timeLeftText.text = "" + (int)timeLeft;
@@ -43,8 +46,12 @@ public class AlienLifeBehaviour : MonoBehaviour
 
     public void ExitNPC()
     {
+        Debug.Log("exit");
+
         isInNPC = false;
         timeLeft = lifeOutsideDuration;
+
+        // re enables rb
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<AlienMovementBehaviour>().enabled = true;
         StopCoroutine(ForceExitNPC(0f));
@@ -52,6 +59,9 @@ public class AlienLifeBehaviour : MonoBehaviour
 
     private void EnterNPC(GameObject npc)
     {
+        Debug.Log("enter");
+
+        // play npc infection function
         npc.GetComponentInChildren<NPCLifeBehaviour>().Infection();
         transform.SetParent(npc.transform, false);
         isInNPC = true;
