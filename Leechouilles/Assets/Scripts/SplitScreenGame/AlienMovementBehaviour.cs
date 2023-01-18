@@ -33,7 +33,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isGrounded());
+        //Debug.Log(isGrounded());
 
         if (canJump && isGrounded())
         {
@@ -84,6 +84,19 @@ public class AlienMovementBehaviour : MonoBehaviour
         // apply jump
         rb.velocity = jumpDir;
         jump = 0;
+
+        // reset jump after delay
+        StartCoroutine(JumpDelay(jumpingTimer));
+    }
+
+    public void ExitNPC()
+    {
+        // set jump dir
+        jumpDir = cam.transform.forward * 10f;
+        jumpDir.y += jumpHeight;
+
+        // apply jump
+        rb.velocity = jumpDir;
 
         // reset jump after delay
         StartCoroutine(JumpDelay(jumpingTimer));

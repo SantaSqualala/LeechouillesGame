@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 4919134210084733898}
   - component: {fileID: 3963458355629333194}
   - component: {fileID: 9086021687220272758}
+  - component: {fileID: 3598964836186387873}
   m_Layer: 0
   m_Name: SplitScreenAlien
   m_TagString: Untagged
@@ -417,11 +418,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f947179c1ad1f45b84662e9d0328cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crawlSpeed: 1
+  canCrawl: 1
   jumpHeight: 1
   jumpBuildSpeed: 15
   minJumpPower: 5
   maxJumpPower: 15
   jumpingTimer: 1
+--- !u!114 &3598964836186387873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301879304595171293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626930ed107e78a499d1b3329d99f15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeOutsideDuration: 15
+  lifeInsideDuration: 20
 --- !u!1 &9202399162042671555
 GameObject:
   m_ObjectHideFlags: 0
