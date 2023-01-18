@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private bool hasHunter = false;
     private List<LobbyPlayerBehaviour> players = new List<LobbyPlayerBehaviour>();
     private List<GameObject> playerList = new List<GameObject>();
-    
+
     [SerializeField] private GameObject hunterPrefab;
     [SerializeField] private GameObject alienPrefab;
 
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     // Depreceated
     public void PlayerJoin(LobbyPlayerBehaviour player)
     {
-        if(hasHunter)
+        if (hasHunter)
         {
             Instantiate(alienPrefab, player.transform);
         }
@@ -42,13 +42,17 @@ public class GameManager : MonoBehaviour
     // triggers on player joining game
     public void OnPlayerJoined()
     {
-        if(hasHunter)
+        hasHunter = true;
+
+        if (hasHunter)
         {
             playerInputManager.playerPrefab = alienPrefab;
         }
 
-        foreach(SplitScreenInputHandler input in FindObjectsOfType<SplitScreenInputHandler>())
+        foreach (SplitScreenInputHandler input in FindObjectsOfType<SplitScreenInputHandler>())
         {
+            Debug.Log(input.GetComponent<PlayerInput>().name);
+
             if(!playerList.Contains(input.gameObject))
             {
                 playerList.Add(input.gameObject);
@@ -56,7 +60,15 @@ public class GameManager : MonoBehaviour
 
             spawnManager.Spawn(input.gameObject);
         }
+    }
 
-        hasHunter = true;
+    public void PauseGame()
+    {
+
+    }
+
+    public void UnPauseGame()
+    {
+
     }
 }

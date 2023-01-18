@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AlienCameraBehaviour : MonoBehaviour
 {
-    private Transform cameraHolder;
-    private InputHandler inputHandler;
+    private SplitScreenInputHandler inputHandler;
 
     [Header("Camera controls")]
     [SerializeField] private float xCameraSensitivity = 100f;
@@ -13,11 +12,11 @@ public class AlienCameraBehaviour : MonoBehaviour
     [SerializeField] private float minXRot = -80f;
     [SerializeField] private float maxXRot = 80f;
     private float xRot = 0f;
+    private float yRot = 0f;
 
     private void Start()
     {
-        cameraHolder = transform.GetChild(0);
-        inputHandler = GetComponentInParent<InputHandler>();
+        inputHandler = GetComponentInParent<SplitScreenInputHandler>();
     }
 
     private void LateUpdate()
@@ -28,10 +27,10 @@ public class AlienCameraBehaviour : MonoBehaviour
     // Rotate the camera and its parent accordingly to input
     private void TPSCameraLook()
     {
-        cameraHolder.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
-
+        transform.parent.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
+        //yRot += inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime;
         xRot -= inputHandler.inputLook().y * xCameraSensitivity * Time.deltaTime;
         xRot = Mathf.Clamp(xRot, minXRot, maxXRot);
-        cameraHolder.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
+        transform.localRotation = Quaternion.Euler(new Vector3(xRot, yRot, 0f));
     }
 }

@@ -9,11 +9,11 @@ public class AlienPositionIndicatorBehaviour : MonoBehaviour
 
     private void Start()
     {
-        hunterCam = FindObjectOfType<HunterScanBehaviour>().GetComponentInChildren<Camera>();
+        hunterCam = FindObjectOfType<HunterMovementBehaviour>().GetComponentInChildren<Camera>();
     }
 
     private void OnPreCull()
     {
-        this.transform.forward = hunterCam.transform.forward;
+        this.transform.up = hunterCam.transform.forward;
     }
 }

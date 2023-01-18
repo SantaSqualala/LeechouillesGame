@@ -14,13 +14,27 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
+        GameObject coll = collision.gameObject;
 
-        if(collision.gameObject.GetComponent<AlienMovementBehaviour>())
+        // kill alien
+        if(coll.GetComponent<AlienMovementBehaviour>())
         {
-            Destroy(collision.gameObject.GetComponent<AlienMovementBehaviour>());
+            coll.GetComponentInChildren<AlienLifeBehaviour>().Death();
         }
 
+        // kill npc
+        if(coll.GetComponent<NPCLifeBehaviour>())
+        {
+            coll.GetComponent<NPCLifeBehaviour>().Death(-collision.transform.forward);
+
+            // kill alien if inside an npc
+            if(coll.GetComponent<NPCLifeBehaviour>().isNPCInfected())
+            {
+                coll.GetComponentInChildren<AlienLifeBehaviour>().Death();
+            }
+        }
+
+        // destroy
         Destroy(gameObject);
     }
 }

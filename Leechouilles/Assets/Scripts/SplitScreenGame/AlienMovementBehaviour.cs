@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class AlienMovementBehaviour : MonoBehaviour
 {
-    private InputHandler input;
+    private SplitScreenInputHandler input;
     private Rigidbody rb;
     private Camera cam;
+
+    [Header("Crawl")]
+    [SerializeField] private float crawlSpeed = 1f;
+    [SerializeField] private bool canCrawl = true;
 
     [Header("Jumping")]
     [SerializeField] private float jumpHeight = 1f;
@@ -21,7 +25,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        input = GetComponent<InputHandler>();
+        input = GetComponent<SplitScreenInputHandler>();
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
     }
@@ -29,7 +33,9 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canJump && isGrounded())
+        Debug.Log(isGrounded());
+
+        if (canJump && isGrounded())
         {
             if(input.inputJump())
             {
@@ -55,6 +61,17 @@ public class AlienMovementBehaviour : MonoBehaviour
                 Jump();
             }
         }
+
+        if(isGrounded())
+        {
+            Crawl();
+        }
+    }
+
+    private void Crawl()
+    {
+        Vector3 crawl = transform.forward * input.inputMovement().y * crawlSpeed;
+        rb.velocity = crawl;
     }
 
     // Make player jump
@@ -64,11 +81,8 @@ public class AlienMovementBehaviour : MonoBehaviour
         jumpDir = cam.transform.forward * jump;
         jumpDir.y += jumpHeight;
 
-        // reset parent
-        transform.SetParent(null, true);
-
         // apply jump
-        rb.AddForce(jumpDir * jump);
+        rb.velocity = jumpDir;
         jump = 0;
 
         // reset jump after delay
@@ -78,7 +92,11 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Return true if player is grounded
     public bool isGrounded()
     {
-        return Physics.Raycast(transform.position - new Vector3(0f, GetComponent<BoxCollider>().bounds.extents.y, 0f), -Vector3.up, 0.1f);
+        Physics.Raycast(transform.position - Vector3.up * 0.01f, -Vector3.up, out RaycastHit groundHit, 0.2f);
+        if(groundHit.collider || (rb.velocity.y <= 0.001f && rb.velocity.y >= -0.001f))
+            return true;
+        else
+            return false;
     }
 
     // Reset player's capacity to jump
