@@ -45,7 +45,7 @@ public class NPCAnimationBehaviour : MonoBehaviour
         foreach (var i in ragRBs)
         {
             i.isKinematic = false;
-            i.AddForce(transform.parent.GetComponentInChildren<ParticleSystem>().transform.forward * 2f);
+            i.velocity = i.transform.forward * Random.Range(15f, -15f);
         }
         
         transform.SetParent(null, true);

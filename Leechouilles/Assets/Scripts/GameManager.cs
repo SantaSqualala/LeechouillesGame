@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
             player.transform.position = spawns[i].transform.position;
             player.transform.rotation = spawns[i].transform.rotation;
             i++;
+
+            if(player.GetComponent<CharacterController>() )
+            {
+                while (player.transform.position != spawns[i].transform.position)
+                    player.GetComponent<CharacterController>().Move(Vector3.Lerp(player.transform.position, spawns[i].transform.position, 50f));
+            }
         }
     }
 
