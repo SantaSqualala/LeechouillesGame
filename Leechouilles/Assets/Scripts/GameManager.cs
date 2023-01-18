@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
 
             if(player.GetComponent<CharacterController>() )
             {
-                while (player.transform.position != spawns[i].transform.position)
-                    player.GetComponent<CharacterController>().Move(Vector3.Lerp(player.transform.position, spawns[i].transform.position, 50f));
+                if(player.transform.position != spawns[i].transform.position)
+                    player.GetComponent<CharacterController>().Move(Vector3.Lerp(player.transform.position, spawns[i].transform.position, 500f));
             }
         }
     }
