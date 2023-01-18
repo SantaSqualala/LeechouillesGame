@@ -29,7 +29,7 @@ public class PlayerVictoryManager : MonoBehaviour
         }
 
         timeLimit -= Time.deltaTime;
-        timeText.text = "Time remaining : " + timeLimit;
+        timeText.text = "Time remaining : " + (int)timeLimit;
     }
 
     public void AlienDead(GameObject alien)
