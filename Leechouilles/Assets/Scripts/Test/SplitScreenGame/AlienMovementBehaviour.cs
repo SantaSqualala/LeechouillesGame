@@ -102,6 +102,11 @@ public class AlienMovementBehaviour : MonoBehaviour
         StartCoroutine(JumpDelay(jumpingTimer));
     }
 
+    public void GetInNPC()
+    {
+
+    }
+
     // Return true if player is grounded
     public bool isGrounded()
     {
@@ -110,6 +115,11 @@ public class AlienMovementBehaviour : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void Death()
+    {
+
     }
 
     // Reset player's capacity to jump
