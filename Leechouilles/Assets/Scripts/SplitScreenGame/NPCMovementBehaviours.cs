@@ -16,6 +16,7 @@ public class NPCMovementBehaviours : MonoBehaviour
 
     [Header("Fleeing")]
     [SerializeField][Range(1f, 15f)] private float fleeDelay = 5f;
+    [SerializeField] private float fleeDistance = 10f;
     private Vector3 fleeDirection;
 
 
@@ -51,4 +52,12 @@ public class NPCMovementBehaviours : MonoBehaviour
         changeDestination = true;
     }
 
+    public void Flee(Vector3 deathPos)
+    {
+        fleeDirection = transform.position - deathPos;
+        fleeDirection = fleeDirection.normalized;
+        agent.destination = fleeDirection * fleeDistance;
+
+        StartCoroutine(ChangeDestinationReset(fleeDelay));
+    }
 }

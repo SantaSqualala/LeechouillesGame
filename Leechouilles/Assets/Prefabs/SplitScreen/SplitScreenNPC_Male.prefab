@@ -125,7 +125,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 7.9995604
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -213,6 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf83ef9c65efd294fbcf03caccc8ee3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minMoveSpeed: 1.5
+  maxMoveSpeed: 4.5
+  fleeDelay: 5
+  fleeDistance: 10
 --- !u!114 &2583956953044223830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,52 +1202,52 @@ PrefabInstance:
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.93
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.9150028
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7070702
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.10086555
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.007207063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6998757
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -172.383
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 171.215
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113501, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1312738662505113502, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}

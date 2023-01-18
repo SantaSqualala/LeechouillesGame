@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NPCLifeBehaviour : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class NPCLifeBehaviour : MonoBehaviour
         deathAudio.Play();
         deathParticles.Play();
         npcAnimation.DeathRagdoll();
+        Destroy(GetComponent<NavMeshAgent>());
+        Destroy(GetComponent<NPCMovementBehaviours>());
     }
 
     public void Infection()
