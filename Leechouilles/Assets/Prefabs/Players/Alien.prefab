@@ -75,10 +75,10 @@ GameObject:
   - component: {fileID: 1844273337355325858}
   - component: {fileID: 6909797103857785068}
   - component: {fileID: 2928040393147929351}
-  - component: {fileID: 5501074392936796846}
   - component: {fileID: 1209216416541562256}
-  - component: {fileID: 7105343170767962000}
   - component: {fileID: 4379386463929301759}
+  - component: {fileID: 2882995596229463010}
+  - component: {fileID: 8058430352273673839}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Alien
@@ -232,25 +232,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &5501074392936796846
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6227322715756570515}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 0.5
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!135 &1209216416541562256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -264,24 +250,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &7105343170767962000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6227322715756570515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 779cce1cd17a3154694d99d5d4b79d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1.2
-  jumpHeight: 1
-  jumpBuildSpeed: 5
-  minJumpPower: 1
-  maxJumpPower: 3
-  jumpingTimer: 2
 --- !u!114 &4379386463929301759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +262,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0b2685bb4e9fe4a8bda176b3526975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2882995596229463010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227322715756570515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779cce1cd17a3154694d99d5d4b79d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  jumpHeight: 1
+  jumpBuildSpeed: 5
+  minJumpPower: 3
+  maxJumpPower: 10
+  jumpingTimer: 1
+--- !u!143 &8058430352273673839
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227322715756570515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.1
+  m_Radius: 0.1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.2
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &7657220216467562524
 GameObject:
   m_ObjectHideFlags: 0

@@ -373,9 +373,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7317382748744860717}
-        m_TargetAssemblyTypeName: HunterMoveBehaviour, Assembly-CSharp
-        m_MethodName: OnMove
+      - m_Target: {fileID: 2512864992063907974}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: InputMovement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -389,9 +389,9 @@ MonoBehaviour:
     m_ActionName: HunterInputs/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7317382748744860717}
-        m_TargetAssemblyTypeName: HunterMoveBehaviour, Assembly-CSharp
-        m_MethodName: OnRotate
+      - m_Target: {fileID: 2512864992063907974}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: InputLook
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -465,9 +465,9 @@ MonoBehaviour:
     m_ActionName: HunterInputs/Sprint[/Keyboard/shift,/XInputControllerWindows/leftStickPress]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7317382748744860717}
-        m_TargetAssemblyTypeName: HunterMoveBehaviour, Assembly-CSharp
-        m_MethodName: OnJump
+      - m_Target: {fileID: 2512864992063907974}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: InputJump
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -539,6 +539,7 @@ MonoBehaviour:
   lookSpeed: 2
   lookXLimit: 70
   canMove: 1
+  play: 0
 --- !u!1 &7777677053270313884
 GameObject:
   m_ObjectHideFlags: 0
