@@ -16,4 +16,9 @@ public class MainMenu_Behaviour : MonoBehaviour
     {
         SceneManager.LoadScene(networkSceneID);
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
