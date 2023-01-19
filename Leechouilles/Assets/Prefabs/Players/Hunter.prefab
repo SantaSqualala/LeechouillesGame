@@ -537,7 +537,7 @@ MonoBehaviour:
   gravity: 20
   playerCamera: {fileID: 6746056161654722770}
   lookSpeed: 2
-  lookXLimit: 45
+  lookXLimit: 70
   canMove: 1
 --- !u!1 &7777677053270313884
 GameObject:
@@ -1500,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 4668512518147524061, guid: a930efc53afda06488a354e592de05b6,
         type: 3}
       propertyPath: weight
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a930efc53afda06488a354e592de05b6, type: 3}

@@ -7,6 +7,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     private InputHandler input;
     private Rigidbody rb;
     private Camera cam;
+    Animator animator;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 1f;
@@ -29,6 +30,7 @@ public class AlienMovementBehaviour : MonoBehaviour
         input = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -102,7 +104,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     {
         Vector3 move = transform.forward * input.inputMovement().y * moveSpeed;
         rb.velocity = move;
-
+        animator.SetFloat("MoveSpeed", rb.velocity.magnitude);
     }
     #endregion
 
