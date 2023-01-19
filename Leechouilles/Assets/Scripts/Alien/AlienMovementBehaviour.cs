@@ -35,7 +35,12 @@ public class AlienMovementBehaviour : MonoBehaviour
     void Update()
     {
         if(canJump)
+        {
             BuildJump();
+
+            if(!isInNPC)
+                Move();
+        }
     }
 
     #region movement
@@ -95,6 +100,8 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Movement
     private void Move()
     {
+        Vector3 move = transform.forward * input.inputMovement().y * moveSpeed;
+        rb.velocity = move;
 
     }
     #endregion

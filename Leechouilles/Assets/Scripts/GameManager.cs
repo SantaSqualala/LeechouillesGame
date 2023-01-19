@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         if(play)
         {
             gameTimer -= Time.deltaTime;
-            announcer.text = "Time remaining" + (int)gameTimer;
+            announcer.text = "Time remaining : " + (int)gameTimer;
         }
 
         if(gameTimer <= 0)
