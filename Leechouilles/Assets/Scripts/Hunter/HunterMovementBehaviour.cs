@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HunterMovementBehaviour : MonoBehaviour
 {
     private InputHandler inputHandler;
     private CharacterController characterController;
     private Camera cam;
+    private HunterAnimationBehaviour hunterAnimationBehaviour;
 
     [Header("Movement")]
     [SerializeField] private float walkSpeed = 4f;
@@ -26,6 +28,7 @@ public class HunterMovementBehaviour : MonoBehaviour
         inputHandler = GetComponent<InputHandler>();
         characterController = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
+        hunterAnimationBehaviour = GetComponentInChildren<HunterAnimationBehaviour>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -39,15 +42,33 @@ public class HunterMovementBehaviour : MonoBehaviour
 
     private void FPSCameraLook()
     {
-        transform.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
+        if (GetComponent<PlayerInput>().currentControlScheme == "Keyboard")
+        {
+            transform.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime * mouseFactor);
 
-        xRot -= inputHandler.inputLook().y * xCameraSensitivity * Time.deltaTime;
-        xRot = Mathf.Clamp(xRot, minXRot, maxXRot);
-        cam.transform.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
+            xRot -= inputHandler.inputLook().y * xCameraSensitivity * Time.deltaTime * mouseFactor;
+            xRot = Mathf.Clamp(xRot, minXRot, maxXRot);
+            cam.transform.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
+        }
+        else
+        {
+            transform.Rotate(Vector3.up * inputHandler.inputLook().x * yCameraSensitivity * Time.deltaTime);
+
+            xRot -= inputHandler.inputLook().y * xCameraSensitivity * Time.deltaTime;
+            xRot = Mathf.Clamp(xRot, minXRot, maxXRot);
+            cam.transform.localRotation = Quaternion.Euler(new Vector3(xRot, 0f, 0f));
+        }
     }
     #endregion
 
-    #region Move
+    #region Move 
+    private void Update()
+    {
+        Movement();
+
+        hunterAnimationBehaviour.UpdateMoveSpeed(characterController.velocity.magnitude);
+    }
+
     private void Movement()
     {
         Vector3 move = new Vector3(inputHandler.inputMovement().x, 0f, inputHandler.inputMovement().y).normalized;
@@ -55,14 +76,6 @@ public class HunterMovementBehaviour : MonoBehaviour
         move.y = Physics.gravity.y * Time.deltaTime;
 
         characterController.Move(move);
-
-        //StickToGround();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        Movement();
     }
     #endregion
 }

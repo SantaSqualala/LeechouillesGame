@@ -8,6 +8,9 @@ public class AlienMovementBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Camera cam;
 
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 1f;
+
     [Header("Jumping")]
     [SerializeField] private float jumpHeight = 1f;
     [SerializeField] private float jumpBuildSpeed = 5f;
@@ -87,6 +90,12 @@ public class AlienMovementBehaviour : MonoBehaviour
         canJump = false;
         yield return new WaitForSeconds(delay);
         canJump = true;
+    }
+
+    // Movement
+    private void Move()
+    {
+
     }
     #endregion
 

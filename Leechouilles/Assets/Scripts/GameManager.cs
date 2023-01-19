@@ -1,19 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public TMP_Text announcer;
+    public float gameTimer = 200f;
+
+    public int hunterVictorySceneId = 3;
+    public int alienVictorySceneId = 4;
+
     public List<GameObject> players = new List<GameObject>();
     public Transform[] spawns;
     public GameObject alienPrefab;
+
     bool play = false;
-    private bool hasHunter = false;
+    bool hasHunter = false;
     int i = 0;
 
     private void StartPlayers()
     {
+        announcer.text = "Time remaining" + gameTimer;
+        announcer.fontSize = 35f;
+
         foreach (GameObject player in players)
         {
             player.GetComponent<InputHandler>().StartPlayer();
@@ -49,12 +60,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(players.Count);
-
         if (players.Count >= 2 && Input.GetKeyDown(KeyCode.Space) && !play)
         {
             play = true;
             StartPlayers();
         }
+
+        if(play)
+        {
+            gameTimer -= Time.deltaTime;
+            announcer.text = "Time remaining" + (int)gameTimer;
+        }
+
+        if(gameTimer <= 0)
+        {
+            SceneManager.LoadScene(alienVictorySceneId);
+        }
+    }
+
+    public void HunterWin()
+    {
+        SceneManager.LoadScene(hunterVictorySceneId);
     }
 }

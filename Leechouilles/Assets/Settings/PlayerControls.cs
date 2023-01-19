@@ -270,7 +270,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""39bd7c05-f162-4bf0-aa81-0ff8f60befad"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
@@ -279,7 +279,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""ce85cc66-50fa-4956-8ec3-0c48e3c8aeaf"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
@@ -362,28 +362,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""036894d3-f047-4833-8fa1-36c954737056"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ef63fc81-fe7e-4b9e-b506-3ce6ede16d75"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9d289ec5-1578-4498-b92d-1bbb88f401b4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -401,6 +379,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""036894d3-f047-4833-8fa1-36c954737056"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef63fc81-fe7e-4b9e-b506-3ce6ede16d75"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
