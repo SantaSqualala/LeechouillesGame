@@ -201,7 +201,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3319595c31da9ea429fc42c8eb9f9bb6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f78473a93e2159745862703dd3b3a793, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -531,9 +531,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedRotKeyboard: 0.5
   SpeedRotController: 4
-  walkingSpeed: 5
-  runningSpeed: 10
-  jumpSpeed: 8
+  walkingSpeed: 3
+  runningSpeed: 5
+  jumpSpeed: 4
   gravity: 20
   playerCamera: {fileID: 6746056161654722770}
   lookSpeed: 2

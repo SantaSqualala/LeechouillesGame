@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 1877090046391440115}
-  deathAudio: {fileID: 2850847246719740623}
+  deathAudio: {fileID: 462654944068597544}
 --- !u!136 &1270522684710947310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110,6 +110,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2094486626726037308}
     m_Modifications:
+    - target: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 350487da12d47e140abc1c5aa6057f54, type: 3}
     - target: {fileID: 1312738662253600284, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_Layer
@@ -195,8 +200,39 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5187265146482410960, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: audios.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187265146482410960, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: audios.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 350487da12d47e140abc1c5aa6057f54, type: 3}
+    - target: {fileID: 5187265146482410960, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: audios.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 17eace920aab9dd419e3a376c31299be, type: 3}
+    - target: {fileID: 5187265146482410960, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: audios.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e06356502c64e704ab1b01e1db115f07, type: 3}
+    - target: {fileID: 5187265146482410960, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: audios.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d52f5279d572744db2a67f8b104fa41, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a9eba2647f7a8a45bd3783aa731e30d, type: 3}
+--- !u!82 &462654944068597544 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+    type: 3}
+  m_PrefabInstance: {fileID: 593080592365303151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877090046391440113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1312738662505113502, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
