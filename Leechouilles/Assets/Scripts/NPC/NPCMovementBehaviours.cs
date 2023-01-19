@@ -40,7 +40,7 @@ public class NPCMovementBehaviours : MonoBehaviour
     private void ChangeDestination()
     {
         destination = new Vector3(Random.Range(-60f, 60f), Random.Range(-2f, 20f), Random.Range(-60f, 60f));
-        changeDestinationDelay = Random.Range(5f, 20f);
+        changeDestinationDelay = Random.Range(1f, 15f);
         agent.destination = destination;
         StartCoroutine(ChangeDestinationReset(changeDestinationDelay));
     }

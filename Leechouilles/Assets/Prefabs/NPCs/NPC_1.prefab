@@ -112,9 +112,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 350487da12d47e140abc1c5aa6057f54, type: 3}
+    - target: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031506354270224967, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1312738662253600284, guid: 5a9eba2647f7a8a45bd3783aa731e30d,
         type: 3}
       propertyPath: m_Layer

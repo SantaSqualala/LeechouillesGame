@@ -65,8 +65,6 @@ public class HunterMovementBehaviour : MonoBehaviour
     private void Update()
     {
         Movement();
-
-        hunterAnimationBehaviour.UpdateMoveSpeed(characterController.velocity.magnitude);
     }
 
     private void Movement()

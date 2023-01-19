@@ -7,6 +7,12 @@ public class MainMenu_Behaviour : MonoBehaviour
 {
     public int splitSceneID, networkSceneID;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     public void LoadSplitScreenGame()
     {
         SceneManager.LoadScene(splitSceneID);

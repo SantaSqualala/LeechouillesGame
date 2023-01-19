@@ -8,6 +8,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Camera cam;
     Animator animator;
+    AlienUI alienUI;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 1f;
@@ -31,12 +32,15 @@ public class AlienMovementBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
         animator = GetComponentInChildren<Animator>();
+        alienUI = GetComponent<AlienUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canJump)
+        alienUI.jumpRefill = jump / maxJumpPower;
+
+        if (canJump)
         {
             BuildJump();
 
@@ -84,7 +88,7 @@ public class AlienMovementBehaviour : MonoBehaviour
         transform.SetParent(null, true);
 
         // apply jump
-        rb.AddForce(jumpDir * jump, ForceMode.Impulse);
+        rb.AddForce(jumpDir, ForceMode.Impulse);
         jump = 0;
 
         // reset jump after delay
@@ -111,6 +115,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     #region death & infection
     public void Death()
     {
+        FindObjectOfType<GameManager>().AlienDeath();
         cam.transform.SetParent(null, true);
         this.enabled = false;
     }

@@ -11,8 +11,8 @@ public class HunterAnimationBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void UpdateMoveSpeed(float moveSpeed)
+    public void Update()
     {
-        animator.SetFloat("MoveSpeed", moveSpeed);
+        animator.SetFloat("MoveSpeed", GetComponent<CharacterController>().velocity.magnitude);
     }
 }

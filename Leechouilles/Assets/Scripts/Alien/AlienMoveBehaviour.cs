@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class HunterMoveBehaviour : MonoBehaviour
+public class AlienMoveBehaviour : MonoBehaviour
 {
 
     [SerializeField] private float SpeedRotKeyboard = 10;

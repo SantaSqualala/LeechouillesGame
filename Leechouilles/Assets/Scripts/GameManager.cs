@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public TMP_Text announcer;
     public float gameTimer = 200f;
+    public int alienCount = 0;
 
     public int hunterVictorySceneId = 3;
     public int alienVictorySceneId = 4;
@@ -39,6 +41,11 @@ public class GameManager : MonoBehaviour
 
             i++;
         }
+
+        foreach(AlienMovementBehaviour alien in FindObjectsOfType<AlienMovementBehaviour>())
+        {
+            alienCount++;
+        }
     }
 
     public void AddPlayer()
@@ -58,9 +65,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AlienDeath()
+    {
+        alienCount--;
+    }
+
     private void Update()
     {
-        if (players.Count >= 2 && Input.GetKeyDown(KeyCode.Space) && !play)
+        if (players.Count >= 2 && Input.GetButtonDown("Start") && !play)
         {
             play = true;
             StartPlayers();
@@ -70,6 +82,11 @@ public class GameManager : MonoBehaviour
         {
             gameTimer -= Time.deltaTime;
             announcer.text = "Time remaining : " + (int)gameTimer;
+        }
+
+        if(play && alienCount <= 0)
+        {
+            HunterWin();
         }
 
         if(gameTimer <= 0)

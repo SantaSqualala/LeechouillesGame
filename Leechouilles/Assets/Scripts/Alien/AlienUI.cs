@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class AlienUI : MonoBehaviour
 {
-    public Image jumpUI;
-    public TMP_Text lifeText;
+    public Slider jumpUI;
+    public float jumpRefill = 1f;
 
     // Update is called once per frame
     void Update()
     {
-        lifeText.text = " + ";
+        jumpUI.value = jumpRefill;
     }
 }
