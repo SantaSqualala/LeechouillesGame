@@ -425,8 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c5d49a9a02f744cb70f42ba4c91868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCameraSensitivity: 50
-  yCameraSensitivity: 50
+  xCameraSensitivity: 200
+  yCameraSensitivity: 200
   minXRot: -30
   maxXRot: 30
 --- !u!114 &8966066712854737392
@@ -523,6 +523,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien_crawling
       objectReference: {fileID: 0}
+    - target: {fileID: 3344844800778004383, guid: e874c7862886a3b47a43d0609f228404,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 5049705025810543433, guid: afeafa37f69ae604f945ea3b65b6ebb0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e874c7862886a3b47a43d0609f228404, type: 3}
 --- !u!4 &6195050718166582055 stripped
