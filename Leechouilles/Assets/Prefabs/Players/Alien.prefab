@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 7851956905966831411}
   - component: {fileID: 9169451399881050425}
   - component: {fileID: 8752242127837405723}
+  - component: {fileID: 8966066712854737392}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Alien
@@ -428,6 +429,18 @@ MonoBehaviour:
   yCameraSensitivity: 50
   minXRot: -30
   maxXRot: 30
+--- !u!114 &8966066712854737392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657220216467562524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78587f13ceb7cc640802733b212cf49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5941238239164916940
 PrefabInstance:
   m_ObjectHideFlags: 0

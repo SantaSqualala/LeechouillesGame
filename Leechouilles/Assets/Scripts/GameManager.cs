@@ -10,23 +10,23 @@ public class GameManager : MonoBehaviour
     public GameObject alienPrefab;
     bool play = false;
     private bool hasHunter = false;
+    int i = 0;
 
     private void StartPlayers()
     {
-        int i = 0;
-
         foreach (GameObject player in players)
         {
             player.GetComponent<InputHandler>().StartPlayer();
             player.transform.position = spawns[i].transform.position;
             player.transform.rotation = spawns[i].transform.rotation;
-            i++;
 
             if(player.GetComponent<CharacterController>() )
             {
                 if(player.transform.position != spawns[i].transform.position)
                     player.GetComponent<CharacterController>().Move(Vector3.Lerp(player.transform.position, spawns[i].transform.position, 500f));
             }
+
+            i++;
         }
     }
 
