@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SplitedScreenGame.unity
     guid: 385c82faf1b2fdb4ba0b81ea83a58cc4
   - enabled: 1
-    path: Assets/Scenes/VictoryScene.unity
+    path: Assets/Scenes/VictorySceneAlien.unity
     guid: 37e6375c8e5c12f4bbd3bd430966d8c7
   m_configObjects: {}
