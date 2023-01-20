@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
             HunterWin();
         }
 
-        if(gameTimer <= 0 || FindObjectOfType<HunterShootBehaviour>().getMunition() <= 0)
+        if(play && (gameTimer <= 0 || FindObjectOfType<HunterShootBehaviour>().getMunition() <= 0))
         {
             SceneManager.LoadScene(alienVictorySceneId);
         }

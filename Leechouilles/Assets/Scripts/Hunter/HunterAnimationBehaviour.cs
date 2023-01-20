@@ -13,6 +13,6 @@ public class HunterAnimationBehaviour : MonoBehaviour
 
     public void Update()
     {
-        animator.SetFloat("MoveSpeed", GetComponent<CharacterController>().velocity.magnitude);
+        animator.SetFloat("MoveSpeed", GetComponentInParent<CharacterController>().velocity.magnitude);
     }
 }

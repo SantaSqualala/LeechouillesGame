@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AlienMovementBehaviour : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     private bool isInNPC = false;
     private NPCLifeBehaviour infectedNPC;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,20 +40,26 @@ public class AlienMovementBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("NPC", isInNPC);
+
         alienUI.jumpRefill = jump / maxJumpPower;
+
+        if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit ground, 0.1f) && rb.velocity.y < 1f && !ground.rigidbody && !isInNPC)
+        {
+            Move();
+        }
 
         if (canJump)
         {
             BuildJump();
-
-            if(!isInNPC)
-                Move();
         }
     }
 
     #region movement
     private void BuildJump()
     {
+        animator.SetBool("Jump", true);
+
         if(input.inputJump() && jump <= maxJumpPower)
         { 
             if(jump < minJumpPower)
@@ -101,12 +109,14 @@ public class AlienMovementBehaviour : MonoBehaviour
         canJump = false;
         yield return new WaitForSeconds(delay);
         canJump = true;
+        animator.SetBool("Jump", false);
     }
 
     // Movement
     private void Move()
     {
-        Vector3 move = transform.forward * input.inputMovement().y * moveSpeed;
+        animator.SetBool("Jump", false);
+        Vector3 move = transform.forward * input.inputMovement().y * moveSpeed - Vector3.up;
         rb.velocity = move;
         animator.SetFloat("MoveSpeed", rb.velocity.magnitude);
     }
@@ -119,6 +129,7 @@ public class AlienMovementBehaviour : MonoBehaviour
         FindObjectOfType<HunterShootBehaviour>().AlienKilled();
         cam.transform.SetParent(null, true);
         this.enabled = false;
+        Destroy(gameObject);
     }
 
     public void Infection(Transform npc)

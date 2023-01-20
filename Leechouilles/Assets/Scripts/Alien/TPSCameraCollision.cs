@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TPSCameraCollision : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class TPSCameraCollision : MonoBehaviour
         //Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
     // LateUpdate is called after Update
