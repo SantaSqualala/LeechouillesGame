@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VictorySceneAlien.unity
     guid: 37e6375c8e5c12f4bbd3bd430966d8c7
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 0e6ac0d033eed834e978a7e509cf7d12
   m_configObjects: {}
