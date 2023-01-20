@@ -5,7 +5,7 @@ using UnityEngine;
 public class CestTrivial : MonoBehaviour
 {
     public AudioSource trivial;
-    [Range(15f, 60f)] public float delay;
+    [Range(15f, 60f)] public float delay = 15f;
 
     // Start is called before the first frame update
     void Start()

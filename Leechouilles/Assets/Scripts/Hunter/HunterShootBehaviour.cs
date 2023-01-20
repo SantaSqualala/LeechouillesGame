@@ -56,7 +56,7 @@ public class HunterShootBehaviour : MonoBehaviour
 
         StartCoroutine(ShootReset(shootDelay));
 
-        munitionUI.fillAmount += 0.2f;
+        munitionUI.fillAmount += 0.1f;
     }
 
     public void AlienKilled()
@@ -64,7 +64,7 @@ public class HunterShootBehaviour : MonoBehaviour
         munitions++;
 
         alienKilled.fillAmount += 0.333f;
-        munitionUI.fillAmount -= 0.2f;
+        munitionUI.fillAmount -= 0.1f;
     }
 
     private void UpdateUI()
