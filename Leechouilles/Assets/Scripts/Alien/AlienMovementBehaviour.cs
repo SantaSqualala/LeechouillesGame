@@ -116,6 +116,7 @@ public class AlienMovementBehaviour : MonoBehaviour
     public void Death()
     {
         FindObjectOfType<GameManager>().AlienDeath();
+        FindObjectOfType<HunterShootBehaviour>().AlienKilled();
         cam.transform.SetParent(null, true);
         this.enabled = false;
     }

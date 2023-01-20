@@ -18,7 +18,8 @@ public class HunterShootBehaviour : MonoBehaviour
 
     [Header("Shooting UI & feedback")]
     [SerializeField] private Image fireIndicator;
-    [SerializeField] private Image[] munitionUI;
+    [SerializeField] private Image munitionUI;
+    [SerializeField] private Image alienKilled;
     [SerializeField] private ParticleSystem shootSystem;
     [SerializeField] private AudioSource shootSound;
 
@@ -33,10 +34,12 @@ public class HunterShootBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (input.inputFire() && canShoot)
+        if (input.inputFire() && canShoot && munitions > 0)
         {
             Shoot();
         }
+
+        UpdateUI();
     }
 
     // Shoots a bullet
@@ -52,11 +55,21 @@ public class HunterShootBehaviour : MonoBehaviour
         shootSystem.Play();
 
         StartCoroutine(ShootReset(shootDelay));
+
+        munitionUI.fillAmount += 0.2f;
+    }
+
+    public void AlienKilled()
+    {
+        munitions++;
+
+        alienKilled.fillAmount += 0.333f;
+        munitionUI.fillAmount -= 0.2f;
     }
 
     private void UpdateUI()
     {
-        if (canShoot && munitions >= 0)
+        if (canShoot && munitions >= 0 && munitions > 0)
         {
             fireIndicator.color = Color.green;
         }
