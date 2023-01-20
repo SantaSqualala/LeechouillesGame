@@ -76,7 +76,7 @@ public class AlienMovementBehaviour : MonoBehaviour
             GetComponent<CapsuleCollider>().isTrigger = true;
             infectedNPC.Death(transform.forward);
             infectedNPC = null;
-            StartCoroutine(ResetColl(0.5f));
+            StartCoroutine(ResetColl(0.1f));
         }
 
         // set jump dir

@@ -93,5 +93,10 @@ public class HunterShootBehaviour : MonoBehaviour
         shootSound.Stop();
         shootSystem.Stop();
     }
+
+    public int getMunition()
+    {
+        return munitions;
+    }
 }
 

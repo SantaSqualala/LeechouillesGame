@@ -8,13 +8,11 @@ public class HunterScanBehaviour : MonoBehaviour
     private InputHandler input;
 
     [Header("Scan params")]
-    [SerializeField] private float scanDuration = 2.5f;
     [SerializeField] private float scanResetTimer = 45f;
 
     [Header("Scan UI")]
-    [SerializeField] private Image scanIndicator;
-
-    private List<GameObject> aliensInView = new List<GameObject>();
+    [SerializeField] private RawImage scanIndicator;
+    [SerializeField] private GameObject alienPosIndicator;
     private bool canScan = false;
 
     // Start is called before the first frame update
@@ -46,6 +44,11 @@ public class HunterScanBehaviour : MonoBehaviour
     // Scan for aliens
     private void Scan()
     {
+        foreach(AlienMovementBehaviour a in FindObjectsOfType<AlienMovementBehaviour>())
+        {
+            Instantiate(alienPosIndicator, a.transform.position, Quaternion.identity);
+        }
+
         StartCoroutine(ScanReset(scanResetTimer));
     }
 
@@ -55,25 +58,6 @@ public class HunterScanBehaviour : MonoBehaviour
         canScan = false;
         yield return new WaitForSeconds(delay);
         canScan = true;
-    }
-    #endregion
-
-    #region Check view frustrum
-    // Check if specific gameobject is present on frustrum plane
-    private bool isGameObjectVisible(Camera c, GameObject target)
-    {
-        var planes = GeometryUtility.CalculateFrustumPlanes(c);
-        var point = target.transform.position;
-
-        foreach(var plane in planes)
-        {
-            if(plane.GetDistanceToPoint(point) > 0)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
     #endregion
 }
